@@ -4,13 +4,13 @@ Small performance comparison of different ways of string joining in C++.
 # Run
 `make`
 
-### Using `std::string::operator+`. string_sum.h
+### Using `std::string::operator+`. string_sum.h (SumStringJoinBench)
 Simply create an empty string and complete join by adding string with `operator+`.
 
-### Using `std::stringstream`. string_stream.h
+### Using `std::stringstream`. string_stream.h (StringStringJoinBench)
 Most conventional "C++"-way. Simply use `operator<<` with `std::stringstream`. 
 
-### Using `std::string::operator+` with preallocating. string_sum_prealloc.h
+### Using `std::string::operator+` with preallocating. string_sum_prealloc.h (SumStringPreallocJoinBench)
 Just like first approach, but before the actual join, calculate the size of the resulting string, and reserve this space,
 so that there will be no reallocations.
 

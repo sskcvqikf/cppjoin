@@ -1,6 +1,7 @@
 #include "string_sum.h"
 #include "string_sum_prealloc.h"
 #include "string_stream.h"
+#include "string_append.h"
 #include <iostream>
 #include <vector>
 
@@ -48,6 +49,15 @@ static void SumStringPreallocJoinBench(benchmark::State& state) {
 }
 
 BENCHMARK(SumStringPreallocJoinBench)->Iterations(500)->Unit(benchmark::kMicrosecond);
+
+static void StringAppendJoinBench(benchmark::State& state) {
+  for (auto _ : state) {
+    auto ret = string_append_join("----", data.cbegin(), data.cend());
+    benchmark::DoNotOptimize(ret);
+  }
+}
+
+BENCHMARK(StringAppendJoinBench)->Iterations(500)->Unit(benchmark::kMicrosecond);
 
 BENCHMARK_MAIN();
 

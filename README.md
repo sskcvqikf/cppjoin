@@ -14,6 +14,9 @@ Most conventional "C++"-way. Simply use `operator<<` with `std::stringstream`.
 Just like first approach, but before the actual join, calculate the size of the resulting string, and reserve this space,
 so that there will be no reallocations.
 
+### Using `std::string::append`. string_append.h (StringAppendJoinBench)
+Turned out, very effective.
+
 ## Results
 ```bash
 Run on (12 X 4056.45 MHz CPU s)
@@ -22,14 +25,15 @@ CPU Caches:
   L1 Instruction 32 KiB (x6)
   L2 Unified 512 KiB (x6)
   L3 Unified 4096 KiB (x2)
-Load Average: 1.45, 1.44, 1.43
+Load Average: 1.76, 1.68, 1.60
 ***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
 ------------------------------------------------------------------------------------
 Benchmark                                          Time             CPU   Iterations
 ------------------------------------------------------------------------------------
-SumStringJoinBench/iterations:500               3615 us         3589 us          500
-StringStringJoinBench/iterations:500            6554 us         6507 us          500
-SumStringPreallocJoinBench/iterations:500       2230 us         2216 us          500
+SumStringJoinBench/iterations:500               3817 us         3803 us          500
+StringStringJoinBench/iterations:500            6802 us         6779 us          500
+SumStringPreallocJoinBench/iterations:500       2397 us         2390 us          500                                                                                                    
+StringAppendJoinBench/iterations:500            2483 us         2475 us          500
 ```
 
 # Conclusion

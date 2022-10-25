@@ -16,6 +16,7 @@ so that there will be no reallocations.
 
 ## Results
 ```bash
+Run on (12 X 4056.45 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x6)
   L1 Instruction 32 KiB (x6)
